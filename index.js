@@ -138,7 +138,7 @@ rome_module.directive('rome', function romeDirective(romeDefaults) {
       });
 
       function formatDate() {
-        scope.ngModel = rome_instance.getDateString();
+        scope.ngModel = rome_instance.getDate();
         scope.formattedValue = rome_instance.getDateString(attrs.viewFormat || romeDefaults.viewFormat) || romeDefaults.labelValue;
       }
 
@@ -151,7 +151,6 @@ rome_module.directive('rome', function romeDirective(romeDefaults) {
 
       rome_instance.on('data', function (value) {
         scope.$apply(function () {
-          scope.ngModel = value;
           formatDate();
         });
       });
